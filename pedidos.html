@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- Encabezado compartido (mismo que index.html) -->
+<header>
+<a href="index.html">Spaceblocks</a>
+
+<nav>
+<ul>
+    <li><a href="index.html#productos">Productos</a></li>
+    <li><a href="index.html#opiniones">Opiniones</a></li>
+    <li><a href="pedidos.html">Hacer pedido</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+<!-- Título único h1 de esta página -->
+<section id="presentacion-pedidos">
+<h1>Catálogo de Tarifas y Solicitud de Pedidos</h1>
+<p>
+    Revisa nuestra lista de precios base por categoría de producto y reserva tu set exclusivo mediante nuestro formulario oficial.
+</p>
+</section>
+
+<!-- AQUÍ COLOCAREMOS LA TABLA Y EL FORMULARIO -->
+
+</main>
+
+<!-- Pie de página compartido (mismo que index.html) -->
+<footer>
+<p>&copy; 2026 Spaceblocks. Todos los derechos reservados.</p>
+<p>Tienda local especializada en bloques de construcción y coleccionismo.</p>
+<nav aria-label="Navegación del pie de página">
+<ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="index.html#productos">Productos</a></li>
+    <li><a href="https://www.lego.com" target="_blank" rel="noopener noreferrer">Sitio Oficial Lego</a></li>
+</ul>
+</nav>
+</footer>
+
+<!-- Sección de Tarifas y Precios -->
+<section id="tarifas">
+<h2>Lista Oficial de Tarifas por Categoría</h2>
+<p>Precios base de venta directa y servicio de importación personalizada.</p>
+
+<table>
+<!-- Encabezados de columna -->
+<thead>
+<tr>
+<th>Categoría</th>
+<th>Línea / Set</th>
+<th>Rango de Piezas</th>
+<th>Precio Base (COP)</th>
+</tr>
+</thead>
+
+<!-- Filas de datos -->
+<tbody>
+<!-- Fila 1 y 2: Ejemplo de rowspan en la columna Categoría -->
+<tr>
+<td rowspan="2">Lego Star Wars</td>
+<td>Caza Estelar X-Wing</td>
+<td>450 a 600 pcs</td>
+<td>$220.000</td>
+</tr>
+<tr>
+<td>Halcón Milenario (Ed. Coleccionista)</td>
+<td>1.200 a 1.500 pcs</td>
+<td>$480.000</td>
+</tr>
+
+<!-- Fila 3 y 4: Otra categoría con rowspan -->
+<tr>
+<td rowspan="2">Lego Icons / Ideas</td>
+<td>Castillos y Dioramas</td>
+<td>800 a 1.100 pcs</td>
+<td>$340.000</td>
+</tr>
+<tr>
+<td>Vehículos Clásicos</td>
+<td>700 a 950 pcs</td>
+<td>$290.000</td>
+</tr>
+
+<!-- Fila 5: Ejemplo de colspan fusionando 3 columnas -->
+<tr>
+<td>Coleccionables Mini</td>
+<td>Minifiguras Serie Especial (Sobres sorpresa)</td>
+<td>1 a 10 pcs</td>
+<td>$25.000 c/u</td>
+</tr>
+<tr>
+<!-- colspan="4": Esta celda abarca las 4 columnas de la tabla -->
+<td colspan="4">
+<strong>Nota:</strong> Los pedidos bajo encargo de sets descontinuados requieren un abono previo del 50%.
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<!-- Sección del Formulario de Pedidos -->
+<section id="formulario-pedido">
+<h2>Solicita tu Pedido o Cotización</h2>
+<p>Diligencia los datos y nos comunicaremos contigo para confirmar disponibilidad y pago.</p>
+
+<form action="https://formspree.io/f/ejemplo" method="POST">
+                
+<!-- Campo 1: Tipo text -->
+<div>
+<label for="nombre-cliente">Nombre completo:</label>
+<input type="text" id="nombre-cliente" name="nombre" placeholder="Ej. Camilo Ortíz" required>
+</div>
+
+<!-- Campo 2: Tipo email (segundo type distinto) -->
+<div>
+<label for="correo-cliente">Correo electrónico:</label>
+<input type="email" id="correo-cliente" name="correo" placeholder="tunombre@ejemplo.com" required>
+</div>
+
+<!-- Campo 3: Tipo tel (tercer type distinto) -->
+<div>
+<label for="telefono-cliente">Número de WhatsApp / Teléfono:</label>
+<input type="tel" id="telefono-cliente" name="telefono" placeholder="300 123 4567" required>
+</div>
+
+<!-- Campo 4: Tipo number (un cuarto type extra) -->
+<div>
+<label for="cantidad-sets">Cantidad de unidades:</label>
+<input type="number" id="cantidad-sets" name="cantidad" min="1" max="10" value="1">
+</div>
+
+<!-- Campo 5: Textarea para comentarios o detalles del set -->
+<div>
+<label for="mensaje-pedido">Detalles del set o figuras que deseas encargar:</label>
+<textarea id="mensaje-pedido" name="mensaje" rows="4" cols="30" placeholder="Indica el nombre del set, código de referencia o si requieres envío nacional..." required></textarea>
+</div>
+
+<!-- Botón de envío -->
+<div>
+    <button type="submit">Enviar Solicitud de Pedido</button>
+</div>
+
+</form>
+</section>
+
+</body>
+</html>
