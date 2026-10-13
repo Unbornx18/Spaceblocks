@@ -1,0 +1,215 @@
+/* ==========================================================================
+   1. VARIABLES (:root) - PALETA SPACEBLOCKS
+   ========================================================================== */
+:root {
+    --color-fondo: #101114;              /* Negro espacial */
+    --color-superficie: #1d1f24;         /* Gris grafito */
+    --color-superficie-hover: #262930;   /* Gris interactivo */
+    --color-borde: #2f333a;              /* Líneas divisorias */
+    --color-acento: #c2ab95;             /* Bronce cálido (botones) */
+    --color-acento-hover: #dbbe9e;       /* Bronce más claro */
+    --color-texto: #ffffff;              /* Blanco principal */
+    --color-texto-mutado: #a0a6b1;       /* Gris claro secundario */
+    --color-overlay: rgba(16, 17, 20, 0.85); /* Canal alfa obligatorio */
+    --degradado-hero: linear-gradient(135deg, #101114 0%, #1d1f24 100%);
+
+    --fuente-principal: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --espacio-xs: 0.25rem;
+    --espacio-sm: 0.5rem;
+    --espacio-md: 1rem;
+    --espacio-lg: 1.5rem;
+    --espacio-xl: 2.5rem;
+    --radio-borde: 6px;
+}
+
+/* ==========================================================================
+   2. RESET Y REGLAS BASE
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* Modelo de cajas predecible */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    overflow-wrap: break-word;
+}
+
+/* Contenedor central (evita que se pegue a los bordes en celular a 360px) */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--espacio-md);
+}
+
+section, aside {
+    margin-bottom: var(--espacio-xl);
+}
+
+a {
+    color: var(--color-acento);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-acento-hover);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   3. HEADER Y FOOTER (Compartido entre páginas)
+   ========================================================================== */
+header, footer {
+    background-color: var(--color-superficie);
+    border-bottom: 1px solid var(--color-borde);
+    padding: var(--espacio-md);
+}
+
+footer {
+    border-top: 1px solid var(--color-borde);
+    border-bottom: none;
+    text-align: center;
+    margin-top: var(--espacio-xl);
+}
+
+header nav ul, footer nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--espacio-md);
+    flex-wrap: wrap;
+    margin-top: var(--espacio-xs);
+}
+
+/* ==========================================================================
+   4. CATÁLOGO Y TARJETAS DE PRODUCTO (Arreglo de imágenes)
+   ========================================================================== */
+/* Cuadrícula responsiva: 1 columna en celular, varias en pantalla ancha */
+.catalogo__contenedor,
+#productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacio-md);
+}
+
+#productos h2 {
+    grid-column: 1 / -1; /* El título ocupa todo el ancho */
+}
+
+/* Tarjeta individual */
+article {
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: var(--espacio-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-xs);
+}
+
+/* AQUÍ SE CONTROLA EL TAMAÑO DE LAS IMÁGENES: */
+article img {
+    width: 100%;
+    height: 180px;         /* Altura fija y pareja */
+    object-fit: cover;     /* Recorta la foto sin deformarla */
+    border-radius: var(--radio-borde);
+    margin-bottom: var(--espacio-xs);
+}
+
+/* Botón de pedir en las tarjetas */
+article a {
+    display: inline-block;
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    padding: var(--espacio-xs) var(--espacio-sm);
+    border-radius: var(--radio-borde);
+    text-align: center;
+    font-weight: bold;
+    margin-top: auto;      /* Lo alinea al fondo de la tarjeta */
+}
+
+/* Banner de promoción (aside) */
+aside {
+    background-color: var(--color-superficie);
+    border-left: 4px solid var(--color-acento);
+    padding: var(--espacio-md);
+    border-radius: var(--radio-borde);
+}
+
+/* ==========================================================================
+   5. TABLA DE TARIFAS (Estilo Excel en dark mode)
+   ========================================================================== */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Requisito obligatorio: une bordes estilo Excel */
+    margin: var(--espacio-md) 0;
+    background-color: var(--color-superficie);
+}
+
+th, td {
+    border: 1px solid var(--color-borde);
+    padding: var(--espacio-sm) var(--espacio-md);
+    text-align: left;
+}
+
+th {
+    background-color: var(--color-superficie-hover);
+    color: var(--color-acento);
+}
+
+/* ==========================================================================
+   6. FORMULARIO DE PEDIDOS
+   ========================================================================== */
+form {
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: var(--espacio-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-md);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--espacio-xs);
+    font-size: 0.9rem;
+    color: var(--color-texto-mutado);
+}
+
+input, textarea {
+    width: 100%;
+    padding: var(--espacio-sm);
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    color: var(--color-texto);
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--color-acento);
+    outline: none;
+}
+
+button[type="submit"] {
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    border: none;
+    padding: var(--espacio-sm) var(--espacio-md);
+    border-radius: var(--radio-borde);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--color-acento-hover);
+}
